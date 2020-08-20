@@ -28,4 +28,14 @@ describe('Test Length size of field class', () => {
         const result = sut.validate(httpRequest.body)
         expect(result).toBe(false)
     })
+    test('Should return true if field length are ok', ()=>{
+        const sut = makeSut()
+        const httpRequest = {
+            body:{
+                [field]:'Happy Case'
+            }
+        }
+        const result = sut.validate(httpRequest.body)
+        expect(result).toBe(true)
+    })
 })
