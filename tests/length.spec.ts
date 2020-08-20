@@ -18,4 +18,14 @@ describe('Test Length size of field class', () => {
         const result = sut.validate(httpRequest.body)
         expect(result).toBe(false)
     })
+    test('Should return false if field length are bigger then maximum', () => {
+        const sut = makeSut()
+        const httpRequest = {
+            body:{
+                [field]:'Maximum test lenght value'
+            }
+        }
+        const result = sut.validate(httpRequest.body)
+        expect(result).toBe(false)
+    })
 })
